@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Prediction</title>
+</head>
+<body>
+    <h2>Enter Symptoms</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="symptom_1">Symptom 1:</label>
+        <input type="text" name="symptom_1" required><br>
+
+        <label for="symptom_2">Symptom 2:</label>
+        <input type="text" name="symptom_2" required><br>
+
+        <label for="symptom_3">Symptom 3:</label>
+        <input type="text" name="symptom_3" required><br>
+
+        <button type="submit">Predict Disease</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
