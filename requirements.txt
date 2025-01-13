@@ -1,4 +1,4 @@
 django
 pandas
 joblib
-sklearn
+scikit-learn
