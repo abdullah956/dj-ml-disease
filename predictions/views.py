@@ -48,3 +48,14 @@ def chatbot(request):
             return JsonResponse({'response': f"Error: {str(e)}"})
 
     return render(request, 'predict.html')
+
+
+
+def home(request):
+    return render(request, 'index.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def about(request):
+    return render(request, 'about-us.html')
