@@ -39,15 +39,29 @@ def chatbot(request):
             prediction = model.predict(input_data)
             disease = le.inverse_transform(prediction)[0]
 
-            # Avoid "acne" prediction if it's not appropriate
-            if disease.lower() == 'acne':
-                disease = "The prediction is inconclusive. Please try different symptoms."
+            # Get the prediction probabilities
+            prediction_proba = model.predict_proba(input_data)[0]
+            proba_dict = {disease: prob for disease, prob in zip(le.classes_, prediction_proba)}
 
-            return JsonResponse({'response': f"The predicted disease is: {disease}"})
+            # Sort diseases by probability
+            sorted_probabilities = sorted(proba_dict.items(), key=lambda item: item[1], reverse=True)
+            top_three = sorted_probabilities[:3]
+
+            # Constructing the response message
+            top_three_diseases = [f"{disease}: {prob*100:.2f}%" for disease, prob in top_three]
+            disease_suggestion = f"Predicted disease is {disease}. Please see a {disease} specialist."
+            probability_message = f"Top 3 predictions: {', '.join(top_three_diseases)}"
+
+            # Returning the response in the desired format
+            return JsonResponse({
+                'response': f"{disease_suggestion}\n{probability_message}"
+            })
         except Exception as e:
             return JsonResponse({'response': f"Error: {str(e)}"})
 
     return render(request, 'predict.html')
+
+
 
 
 
