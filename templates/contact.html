@@ -4,15 +4,27 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <title>MediPredict</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
     <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}" />
     <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" />
-    <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'vendors/animate-css/animate.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'vendors/fontawesome/css/all.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'vendors/animate-css/animate.css' %}"
+    />
     <!-- Main CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
@@ -30,14 +42,27 @@
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand logo_h" href="index.html"><h3 class="text-primary mt-4">MediPredict</h3></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand logo_h" href="index.html"
+              ><h3 class="text-primary mt-4">MediPredict</h3></a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <div
+              class="collapse navbar-collapse offset"
+              id="navbarSupportedContent"
+            >
               <ul class="nav navbar-nav menu_nav ml-auto">
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'home' %}">Home</a>
@@ -52,21 +77,22 @@
                   <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                 </li>
                 {% if not user.is_authenticated %}
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'signup' %}">Signup</a>
-                  </li>
-                {% endif %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'signup' %}">Signup</a>
+                </li>
+                {% endif %} {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'patient_history' %}"
+                    >History</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
 
-                {% if user.is_authenticated %}
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'patient_history' %}">History</a>
-                  </li>
                 {% endif %}
               </ul>
             </div>
@@ -80,7 +106,9 @@
     <section class="banner_area">
       <div class="banner_inner d-flex align-items-center">
         <div class="container">
-          <div class="banner_content d-md-flex justify-content-between align-items-center">
+          <div
+            class="banner_content d-md-flex justify-content-between align-items-center"
+          >
             <div class="mb-3 mb-md-0">
               <h2>Contact</h2>
               <p>Belding years moveth earth green behold wherein</p>
@@ -107,11 +135,11 @@
 
             {% load static %}
 
-            <form  method="post" >
-              {% csrf_token %}
-              {{ form.as_p }} <!-- Automatically renders all form fields with labels and error messages -->
+            <form method="post">
+              {% csrf_token %} {{ form.as_p }}
+              <!-- Automatically renders all form fields with labels and error messages -->
               <div class="form-group mt-3">
-                <button type="submit" >Send Message</button>
+                <button type="submit" class="btn btn-dark">Send Message</button>
               </div>
             </form>
           </div>
@@ -195,11 +223,31 @@
             <h4>Newsletter</h4>
             <!-- <p>You can trust us. we only send promo offers,</p> -->
             <div class="form-wrap" id="mc_embed_signup">
-              <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-                <input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address'" required="" type="email" />
-                <button class="click-btn btn btn-default"><i class="ti-arrow-right"></i></button>
+              <form
+                target="_blank"
+                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                method="get"
+                class="form-inline"
+              >
+                <input
+                  class="form-control"
+                  name="EMAIL"
+                  placeholder="Your Email Address"
+                  onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Your Email Address'"
+                  required=""
+                  type="email"
+                />
+                <button class="click-btn btn btn-default">
+                  <i class="ti-arrow-right"></i>
+                </button>
                 <div style="position: absolute; left: -5000px">
-                  <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text" />
+                  <input
+                    name="b_36c4fd991d266f23781ded980_aefe40901a"
+                    tabindex="-1"
+                    value=""
+                    type="text"
+                  />
                 </div>
 
                 <div class="info"></div>
@@ -210,9 +258,11 @@
         <div class="row footer-bottom d-flex justify-content-between">
           <p class="col-lg-8 col-sm-12 footer-text m-0">
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>
-                              document.write(new Date().getFullYear())
-                            </script>All rights reserved | MEDIPREDICT
+            Copyright &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            All rights reserved | MEDIPREDICT
 
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
@@ -227,7 +277,14 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <i class="fas fa-times"></i>
+            </button>
             <h2>Thank you</h2>
             <p>Your message is successfully sent...</p>
           </div>
@@ -241,7 +298,14 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <i class="fas fa-times"></i>
+            </button>
             <h2>Sorry !</h2>
             <p>Something went wrong</p>
           </div>
